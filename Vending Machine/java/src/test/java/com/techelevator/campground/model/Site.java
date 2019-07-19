@@ -1,7 +1,5 @@
 package com.techelevator.campground.model;
 
-import java.math.BigDecimal;
-
 public class Site {
 
 	private int siteId;

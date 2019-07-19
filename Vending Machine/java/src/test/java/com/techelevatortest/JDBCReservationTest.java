@@ -27,7 +27,7 @@ public class JDBCReservationTest extends DAOIntegrationTest {
 		LocalDate fromDate = LocalDate.of(2019, Month.JUNE, 17);
 		LocalDate toDate = LocalDate.of(2019, Month.SEPTEMBER, 19);
 		LocalDate createDate = LocalDate.of(2019, Month.JUNE, 21);
-		Reservation reservation = dao.getReservation(57, 45, "Test Data", fromDate, toDate, createDate);
+		Reservation reservation = dao.makeReservation(57, 45, "Test Data", fromDate, toDate, createDate);
 		Reservation obtainedReservation = null;
 		dao.makeReservation(57, "Test Data", fromDate, toDate, createDate);
 		String sqlObtainCreatedReservation = "SELECT reservation_id, site_id, name, from_date, to_date, create_date FROM reservation WHERE reservation.name = 'Test Data'";

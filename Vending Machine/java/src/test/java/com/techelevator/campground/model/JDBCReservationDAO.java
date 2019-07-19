@@ -57,7 +57,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 	}
 
 	@Override
-	public Reservation getReservation(int reservation_id, int site_id, String name, LocalDate from_date,
+	public Reservation makeReservation(int reservation_id, int site_id, String name, LocalDate from_date,
 			LocalDate to_date, LocalDate create_date) {
 
 		Reservation reservation = new Reservation();

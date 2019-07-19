@@ -17,8 +17,10 @@ public interface ReservationDAO {
 	public Reservation mapRowToReservation(SqlRowSet results);
 	/* maps a row from the reservation table to a Reservation object */
 
-	public Reservation getReservation(int reservation_id, int site_id, String name, LocalDate from_date,
+	public Reservation makeReservation(int reservation_id, int site_id, String name, LocalDate from_date,
 			LocalDate to_date, LocalDate create_date);
-
+	/* makes a reservation for the user and populates database from Reservation object */
+	
 	public Reservation retrieveReservation(String reservationName);
+	/* retrieves a Reservation object after being populated from the database, based on the reservation's name */
 }
