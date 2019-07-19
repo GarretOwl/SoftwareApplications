@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+header img {
+	height: 110px;
+}
+
+body{
+/* 	background-color: #FDDCC8;
+ */	/* background-image: linear-gradient(white, #FDDCC8); */
+ 
+background-image:  url('file:///Users/ljarrett/Development/Pairs/team0-java-green-week9-pair-exercises/12-Capstone/java/src/main/webapp/img/firewatch.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+box-shadow: inset 0 0 0 1000px rgba(253,220,200,.9);
+
+ 
+ font-family: 'Open Sans';font-size: 14px;
+	
+}
+
+a {
+	
+	text-decoration: none;
+}
+
+p{
+	
+	
+}
+
+.overlay{
+	 position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+#nav-bar{
+	
+	background-color:#222;
+	top: 0;
+	padding: 10px;
+	margin-bottom: 20px;
+	
+}
+
+.nav-item{
+	display: inline;
+	text-decoration: none;
+}
+
+.nav-item>a{
+	
+	color: white;
+	font-size: 150%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+#park-column{
+	
+display: flex;
+	
+}
+
+#park-info-image-box{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+/* 		border: solid red 1px;
+ */	
+	
+}
+
+#park-info-box{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+/* 	border: solid red 1px;
+ */}
+
+#park-info{
+	display: inline-block;
+	margin: 20px;
+/* 	border: solid green 1px;
+ */}
+
+
+
+#park-info-image {
+  transition: filter .5s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+#park-info-image:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+
+
+/* PARK DETAIL PAGE BELOW */
+
+.park-detail-page-image{
+	
+display: block;
+
+justify-content: center;
+align-items: center;
+overflow: hidden;
+	
+}
+
+.park-detail-page-image img {
+	
+	display: block;
+	height: auto;
+	width: 100%;
+	max-height: 700px;
+	
+	margin-left: auto;
+	margin-right: auto;
+
+
+}
+
+.park-detail-park-details-box {
+	
+	display: flex;
+	
+	
+}
+
+.park-detail-park-details{
+	
+	text-align: left;
+}
+
+
+.park-detail-weather-box{
+	
+	display: flex;
+}
+
+
+.park-detail-today-weather-box{
+	
+	display: flex;
+	margin-right: 40px;
+	padding: 40px;
+}
+
+.today-box{
+	
+	text-align: center;
+}
+
+.park-detail-4day-weather-box{
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.park-detail-4day-weather-box img{
+
+max-width: 50%;
+max-height: 50%;
+}
+
+.test-box{
+	
+	display: flex;
+	margin: 2px;
+}
+
+.crazy-box{
+	
+	display: block;
+	max-height: 50%;
+	max-width: 50%
+	margin: 10px;
+	text-align: center;
+	
+}
+
+.crazy-box img{
+	
+	max-height: 50%;
+	max-width: 50%
+	
+	text-align: center;
+	
+}
