@@ -37,7 +37,6 @@ public class IO {
 		} catch (InputMismatchException e) {
 			System.out.println("Please enter a valid dollar amount, and try again."); // Catching user input's
 																						// non-numeric value selection
-
 			feedMoney();
 		}
 	}
@@ -49,5 +48,4 @@ public class IO {
 	public void setBalance(BigDecimal balance) {
 		IO.balance = balance;
 	}
-
 }

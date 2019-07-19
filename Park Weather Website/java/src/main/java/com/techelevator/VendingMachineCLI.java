@@ -1,10 +1,6 @@
 package com.techelevator;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import com.techelevator.view.IO;
-import com.techelevator.view.Inventory;
 import com.techelevator.view.Menu;
 
 public class VendingMachineCLI {
@@ -13,7 +9,6 @@ public class VendingMachineCLI {
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
-
 	}
 
 	public void run() throws IOException {
