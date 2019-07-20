@@ -6,11 +6,8 @@ import com.techelevator.npgeek.model.park.Park;
 
 public class SurveyResultsObject {
 	
-	
 	private List<Park> topParkList;	
 	private List<Survey> topSurveyList;
-	
-	
 	
 	/**
 	 * @return the topParkList
@@ -36,7 +33,4 @@ public class SurveyResultsObject {
 	public void setTopSurveyList(List<Survey> topSurveyList) {
 		this.topSurveyList = topSurveyList;
 	}
-	
-	
-
 }

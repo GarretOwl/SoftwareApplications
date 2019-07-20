@@ -25,7 +25,6 @@ import com.techelevator.npgeek.model.weather.WeatherDao;
 
 public class JDBCWeatherDaoTest extends DAOIntegrationTest {
 	
-	
 	private static SingleConnectionDataSource dataSource;
 	JdbcWeatherDao jdbcWeatherDao = new JdbcWeatherDao(dataSource);
 
@@ -38,7 +37,6 @@ public class JDBCWeatherDaoTest extends DAOIntegrationTest {
 		dataSource.setPassword("postgres1");
 		dataSource.setAutoCommit(false);
 		
-
 	}
 
 	@AfterClass
@@ -66,7 +64,6 @@ public class JDBCWeatherDaoTest extends DAOIntegrationTest {
 		park.setYearFounded(2019);
 		addPark(park);
 		
-		
 		for (int i = 1; i<=5; i++) {
 		Weather weather = new Weather();
 		weather.setParkCode("JAMES");
@@ -84,6 +81,7 @@ public class JDBCWeatherDaoTest extends DAOIntegrationTest {
 		dataSource.getConnection().rollback();
 	}
 
+	
 	@Test
 	public void getWeatherByForeCastByParkCodeTest() {
 		
@@ -95,12 +93,12 @@ public class JDBCWeatherDaoTest extends DAOIntegrationTest {
 		Assert.assertEquals("thunderstorms", listOfWeather.get(0).getForecast());
 		Assert.assertEquals(1, listOfWeather.get(0).getDayOfForecast());
 		Assert.assertEquals(77, listOfWeather.get(4).getHigh());
-
-		
+	
 	}
 
 	
 	public void addWeather(Weather weather) {
+		
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String SQLString = "INSERT INTO weather (parkcode, fivedayforecastvalue, low, high, forecast) VALUES (?, ?, ?, ?, ?)";
 		jdbcTemplate.update(SQLString, weather.getParkCode(), weather.getDayOfForecast(), weather.getLow(), weather.getHigh(), weather.getForecast());
@@ -113,6 +111,4 @@ public class JDBCWeatherDaoTest extends DAOIntegrationTest {
 		jdbcTemplate.update(SQLString, park.getParkCode(), park.getParkName(), park.getState(), park.getAcreage(), park.getElevationInFeet(), park.getMilesOfTrail(), park.getNumberOfCampsites(), park.getClimate(), park.getYearFounded(), park.getAnnualVisitorCount(), park.getQuote(), park.getQuoteSource(), park.getDescription(), park.getEntryFee(), park.getNumberOfAnimalSpecies());
 		
 	}
-
-
 }

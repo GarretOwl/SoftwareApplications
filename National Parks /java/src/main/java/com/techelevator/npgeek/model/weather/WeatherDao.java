@@ -6,5 +6,4 @@ public interface WeatherDao {
 	
 	public List<Weather> getWeatherForecastByParkCode (String parkCode); //should return a list of 5 Weather Objects
 
-
 }

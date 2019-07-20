@@ -13,21 +13,15 @@
 <title>Park Detail Page</title>
 </head>
 <body>
-
-
-
 	<c:url value="/parkDetail" var="formAction" />
 	<form:form id="main-content" method="POST" action="${formAction}">
-		<label for="temperatureChoice">Choose temperature preference:
-		</label>
-
+		<label for="temperatureChoice">Choose temperature preference:</label>
 		<select name="temperatureChoice">
 			<option value="false">Fahrenheit</option>
 			<option value="true">Celsius</option>
 		</select>
 		<input type="submit" value="Change Temp" />
 	</form:form>
-
 
 	<div class="park-detail-page-image">
 		<c:url var="parkImg" value="/img/parks/${park.parkImage}.jpg" />
@@ -64,79 +58,64 @@
 					<br />
 				</c:otherwise>
 			</c:choose>
-
 		</div>
-
 	</div>
 
+	<div class="park-detail-weather-box">
+		<c:forEach var="weather" items="${weather}" varStatus="loop">
+			<c:url var="weatherImg"
+				value="/img/weather/${weather.weatherImage}.png" />
 
-
-<div class="park-detail-weather-box">
-
-
-					<c:forEach var="weather" items="${weather}" varStatus="loop">
-					<c:url var="weatherImg" value="/img/weather/${weather.weatherImage}.png" />
-
-						<c:if test="${weather.dayOfForecast=='1'}">
-						<div class="park-detail-today-weather-box">
-						<div class="today-box">
+			<c:if test="${weather.dayOfForecast=='1'}">
+				<div class="park-detail-today-weather-box">
+					<div class="today-box">
 						<h1>Today</h1>
 						<img src="${weatherImg}">
-						
+
 
 						<c:if test="${temperatureChoice == false}">
 							<h2>Low: ${weather.low}F High: ${weather.high}F</h2>
-					
+
 						</c:if>
 						<c:if test="${temperatureChoice == true}">
-							<h2>Low: ${weather.lowCelsius}C High: ${weather.highCelsius}C</h2>
+							<h2>Low: ${weather.lowCelsius}C High:
+								${weather.highCelsius}C</h2>
 						</c:if>
-						
-						<p>${weather.weatherMessage}</p>
-						
-						</div>
-						</div>
-						</c:if>
-						</c:forEach>
-
-
-
-		<div class="test-box">
-		
-		<c:forEach var="weather" items="${weather}" varStatus="loop">
-
-
-			<c:url var="weatherImg" value="/img/weather/${weather.weatherImage}.png" />
-			
-					<c:if test="${weather.dayOfForecast!='1'}">
-					<div class="park-detail-4day-weather-box">
-					
-						<div class="crazy-box">
-						<img src="${weatherImg}">
-					
-
-						<c:if test="${temperatureChoice == false}">
-							<h3>Low: ${weather.low}F </h3>
-							<h3>High: ${weather.high}F</h3>
-						
-						</c:if>
-						<c:if test="${temperatureChoice == true}">
-							<h3>Low: ${weather.lowCelsius}C</h3>
-							<h3>High: ${weather.highCelsius}C</h3>
-						</c:if>
-						
 						<p>${weather.weatherMessage}</p>
 					</div>
-					</div>
-					</c:if>
-					<br />
-	
+				</div>
+			</c:if>
 		</c:forEach>
 
-	</div>
+		<div class="test-box">
+			<c:forEach var="weather" items="${weather}" varStatus="loop">
+				<c:url var="weatherImg"
+					value="/img/weather/${weather.weatherImage}.png" />
+
+				<c:if test="${weather.dayOfForecast!='1'}">
+					<div class="park-detail-4day-weather-box">
+
+						<div class="crazy-box">
+							<img src="${weatherImg}">
 
 
+							<c:if test="${temperatureChoice == false}">
+								<h3>Low: ${weather.low}F</h3>
+								<h3>High: ${weather.high}F</h3>
 
+							</c:if>
+							<c:if test="${temperatureChoice == true}">
+								<h3>Low: ${weather.lowCelsius}C</h3>
+								<h3>High: ${weather.highCelsius}C</h3>
+							</c:if>
+
+							<p>${weather.weatherMessage}</p>
+						</div>
+					</div>
+				</c:if>
+				<br />
+			</c:forEach>
+		</div>
 	</div>
 </body>
 </html>

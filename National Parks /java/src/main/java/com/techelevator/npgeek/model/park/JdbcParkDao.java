@@ -29,42 +29,24 @@ public class JdbcParkDao implements ParkDao {
 		while (result.next()) {
 
 			allParksList.add(mapRowSetToPark(result));
-	
-
 		}
-
 		return allParksList;
 	}
 
 	@Override
 	public Park getParkByParkCode(String parkCode) {
+
 		Park park = null;
-
 		SqlRowSet result = jdbcTemplate.queryForRowSet("SELECT * FROM park WHERE parkcode = ?", parkCode);
+
 		if (result.next()) {
-
 			park = mapRowSetToPark(result);
-
 		}
-
 		return park;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	private Park mapRowSetToPark(SqlRowSet results) {
+		
 		Park park = new Park();
 		park.setParkCode(results.getString("parkcode"));
 		park.setParkName(results.getString("parkname"));

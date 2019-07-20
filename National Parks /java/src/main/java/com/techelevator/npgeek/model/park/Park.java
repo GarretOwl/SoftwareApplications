@@ -19,9 +19,6 @@ public class Park {
 	private int numberOfAnimalSpecies;
 	private String parkImage;
 	
-	
-	
-	
 	//GETTERS AND SETTERS BELOW//
 	
 	

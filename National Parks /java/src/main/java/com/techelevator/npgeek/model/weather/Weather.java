@@ -11,11 +11,6 @@ public class Weather {
 	private int highCelsius;
 	private String weatherImage;
 	private String weatherMessage;
-
-	
-	
-	//GETTERS AND SETTERS BELOW//
-	
 	
 	
 	/**
@@ -127,8 +122,4 @@ public class Weather {
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
-	
-	
-	
-
 }

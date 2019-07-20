@@ -39,7 +39,6 @@ public class ParksController {
 		public String displayHomePage(ModelMap map) {
 			
 			List<Park> allParksList = parkDao.getAllParks();
-		 
 			map.addAttribute("allParkList", allParksList);
 			
 			return "homePage";
@@ -54,17 +53,14 @@ public class ParksController {
 			}
 
 			Park park = parkDao.getParkByParkCode(parkCode);
-
 			List<Weather> weatherList = weatherDao.getWeatherForecastByParkCode(parkCode);
 			
 			parkCode = park.getParkCode();
-			map.put("parkCode", parkCode); //addAttributes has a null check, was giving us errors. Used put instead  
+			map.put("parkCode", parkCode); 
 			map.put("park", park);
 			map.put("weather", weatherList);
 	
 			return "parkDetail";
-			
-			
 		}
 		
 		
@@ -73,8 +69,7 @@ public class ParksController {
 			
 			map.addAttribute("temperatureChoice", temperatureChoice);
 	
-			return "redirect:/parkDetail";
-					
+			return "redirect:/parkDetail";				
 		}
 		@RequestMapping(path = "/parkSurvey", method = RequestMethod.GET)
 		public String displaySurveyPageWithForm(ModelMap map) {
@@ -94,7 +89,6 @@ public class ParksController {
 			}
 						
 			surveyDao.addSurvey(survey);
-			
 		
 			return "redirect:/parkSurveyResults";
 		}
@@ -103,13 +97,8 @@ public class ParksController {
 		public String displayParkSurveyResultsPage(HttpServletRequest request) {
 			
 			LinkedHashMap<String, Integer> surveyList = surveyDao.getSurveysWithOneCountMin();		
-			
 			request.setAttribute("surveys", surveyList);
 			
 			return "parkSurveyResults";
-			
-			
 		}
-		
-
 	}

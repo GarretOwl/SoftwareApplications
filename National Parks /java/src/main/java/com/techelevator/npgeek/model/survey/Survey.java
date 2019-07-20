@@ -21,8 +21,6 @@ public class Survey {
 	private String parkImage;
 	
 	
-	
-	
 	/**
 	 * @return the parkImage
 	 */
@@ -95,7 +93,4 @@ public class Survey {
 	public void setActivityLevel(String activityLevel) {
 		this.activityLevel = activityLevel;
 	}
-	
-	
-
 }

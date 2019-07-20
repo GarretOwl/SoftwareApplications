@@ -16,11 +16,9 @@ import com.techelevator.npgeek.model.park.JdbcParkDao;
 import com.techelevator.npgeek.model.park.Park;
 
 public class JDBCParkDaoTest extends DAOIntegrationTest {
-	
-	
+
 	private static SingleConnectionDataSource dataSource;
 	JdbcParkDao jdbcParkDao = new JdbcParkDao(dataSource);
-
 
 	@BeforeClass
 	public static void setupDataSource() {
@@ -29,7 +27,7 @@ public class JDBCParkDaoTest extends DAOIntegrationTest {
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres1");
 		dataSource.setAutoCommit(false);
-		
+
 	}
 
 	@AfterClass
@@ -56,7 +54,7 @@ public class JDBCParkDaoTest extends DAOIntegrationTest {
 		park.setState("Wyoming");
 		park.setYearFounded(2019);
 		addPark(park);
-		
+
 	}
 
 	@After
@@ -66,7 +64,7 @@ public class JDBCParkDaoTest extends DAOIntegrationTest {
 
 	@Test
 	public void getAllParksTest() {
-		
+
 		List<Park> listOfParks = jdbcParkDao.getAllParks();
 		Assert.assertNotNull(listOfParks);
 		Assert.assertTrue(listOfParks.size() > 0);
@@ -74,7 +72,7 @@ public class JDBCParkDaoTest extends DAOIntegrationTest {
 
 	@Test
 	public void getParkByParkCodeTest() {
-		
+
 		Park jamesPark = jdbcParkDao.getParkByParkCode("JAMES");
 		Assert.assertNotNull(jamesPark);
 		Assert.assertEquals("JAMES", jamesPark.getParkCode());
@@ -88,16 +86,15 @@ public class JDBCParkDaoTest extends DAOIntegrationTest {
 		Assert.assertEquals("Wyoming", jamesPark.getState());
 		Assert.assertEquals(2019, jamesPark.getYearFounded());
 
-		
 	}
-	
-	
+
 	public void addPark(Park park) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String SQLString = "INSERT INTO park (parkcode, parkname, state, acreage, elevationinfeet, milesoftrail, numberofcampsites, climate, yearfounded, annualvisitorcount, inspirationalquote, inspirationalquotesource, parkdescription, entryfee, numberofanimalspecies) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		jdbcTemplate.update(SQLString, park.getParkCode(), park.getParkName(), park.getState(), park.getAcreage(), park.getElevationInFeet(), park.getMilesOfTrail(), park.getNumberOfCampsites(), park.getClimate(), park.getYearFounded(), park.getAnnualVisitorCount(), park.getQuote(), park.getQuoteSource(), park.getDescription(), park.getEntryFee(), park.getNumberOfAnimalSpecies());
-		
+		jdbcTemplate.update(SQLString, park.getParkCode(), park.getParkName(), park.getState(), park.getAcreage(),
+				park.getElevationInFeet(), park.getMilesOfTrail(), park.getNumberOfCampsites(), park.getClimate(),
+				park.getYearFounded(), park.getAnnualVisitorCount(), park.getQuote(), park.getQuoteSource(),
+				park.getDescription(), park.getEntryFee(), park.getNumberOfAnimalSpecies());
+
 	}
-
-
 }
